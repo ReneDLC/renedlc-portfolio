@@ -24,14 +24,16 @@ ENV FPM_PM_MAX_CHILDREN=20 \
     FPM_PM_MAX_SPARE_SERVERS=3
 
 # set application environment variables
-ENV APP_NAME="Question Board" \
+ENV APP_NAME="ReneDLC Profile" \
     APP_ENV=production \
     APP_DEBUG=false
 
 # copy entrypoint files
-COPY ./docker/docker-php-* /usr/local/bin/
-RUN dos2unix /usr/local/bin/docker-php-entrypoint
-RUN dos2unix /usr/local/bin/docker-php-entrypoint-dev
+# COPY ./docker/docker-php-* /usr/local/bin/
+# RUN dos2unix /usr/local/bin/docker-php-entrypoint
+# RUN dos2unix /usr/local/bin/docker-php-entrypoint-dev
+
+COPY ./docker/www.conf /usr/local/etc/php-fpm.d/zzz-app.conf
 
 # copy nginx configuration
 COPY ./docker/nginx.conf /etc/nginx/nginx.conf
@@ -50,5 +52,5 @@ EXPOSE 80
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
 
 #SET Permissions for both Shell Scripts files
-RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint-dev"]
-RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint"]
+# RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint-dev"]
+# RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint"]
