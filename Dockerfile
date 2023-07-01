@@ -29,11 +29,11 @@ ENV APP_NAME="ReneDLC Profile" \
     APP_DEBUG=false
 
 # copy entrypoint files
-# COPY ./docker/docker-php-* /usr/local/bin/
-# RUN dos2unix /usr/local/bin/docker-php-entrypoint
-# RUN dos2unix /usr/local/bin/docker-php-entrypoint-dev
+COPY ./docker/docker-php-* /usr/local/bin/
+RUN dos2unix /usr/local/bin/docker-php-entrypoint
+RUN dos2unix /usr/local/bin/docker-php-entrypoint-dev
 
-COPY ./docker/www.conf /usr/local/etc/php-fpm.d/zzz-app.conf
+# COPY ./docker/www.conf /usr/local/etc/php-fpm.d/zzz-app.conf
 
 # copy nginx configuration
 COPY ./docker/nginx.conf /etc/nginx/nginx.conf
