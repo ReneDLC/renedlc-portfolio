@@ -52,5 +52,5 @@ EXPOSE 80
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
 
 #SET Permissions for both Shell Scripts files
-# RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint-dev"]
-# RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint"]
+RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint-dev"]
+RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint"]
