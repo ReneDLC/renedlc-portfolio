@@ -1,4 +1,4 @@
-FROM renedlc/golden-container-image
+FROM renedlc/golden-container-image:aws
 
 # set composer related environment variables
 #Note var/www/vendor and var/www/app are on the same direcotry, the public.js
