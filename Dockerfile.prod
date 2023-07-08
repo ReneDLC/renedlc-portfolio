@@ -26,7 +26,7 @@ ENV FPM_PM_MAX_CHILDREN=20 \
 # set application environment variables
 ENV APP_NAME="ReneDLC Profile" \
     APP_ENV=production \
-    APP_DEBUG=false
+    APP_DEBUG=true
 
 # copy entrypoint files
 COPY ./docker/docker-php-* /usr/local/bin/
